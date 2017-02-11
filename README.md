@@ -1,26 +1,29 @@
 ##Chat
 
-setup:
+**Setup:**
 
 ![Image of setup]
 (http://212.24.98.139/chat/img/git/1.jpg)
 
-channel-setup:
+**Channel-setup:**
 
 ![image of chanup]
 (http://212.24.98.139/chat/img/git/2.jpg)
 
-chat:
+**Chat:**
 
 ![image of chat]
 (http://212.24.98.139/chat/img/git/3.jpg)
 
-Simple chat, made with Angular2, socket.io, express, nodejs
+#Features
+
+Simple chat, made with Angular2, socket.io, express, nodejs.
+Username, premade channels, username highlighting, indicators for inactive channels' messages.
 
 #To do:
 
-- Remove a channel
-- Create a custom channel
+- Function: Leave a channel
+- Function, sql server function and search form for: Create a custom channel
 - Something funky
 - Clean things up
 
