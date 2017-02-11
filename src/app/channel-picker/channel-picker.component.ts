@@ -22,7 +22,6 @@ export class ChannelPickerComponent implements OnInit {
   ngOnInit() {
       this.connection = this.chatServer.getChannels().subscribe( response => {
          this.data = response;
-         console.log(response);
        });
 
        this.chatServer.askChannels(); 

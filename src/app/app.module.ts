@@ -1,7 +1,6 @@
 import { ChatserverService } from './services/chatserver.service';
 
 import { StorageService } from './services/storage.service';
-import { ChatmessagesService } from './services/chatmessages.service';
 import { AppComponent } from './app.component';
 import {APP_BASE_HREF} from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,7 +17,6 @@ import { ChannelSetupComponent } from './channel-setup/channel-setup.component';
 import { ChannelPickerComponent } from './channel-picker/channel-picker.component';
 
 import * as io from 'socket.io-client';
-import { UsernamePipe } from './pipes/username.pipe';
 
 import {Angular2AutoScroll} from "angular2-auto-scroll/lib/angular2-auto-scroll.directive";
 
@@ -59,9 +57,7 @@ const routeConfig = [
     SetupComponent,
     ChannelSetupComponent,
     ChannelPickerComponent,
-    UsernamePipe,
     Angular2AutoScroll
-
   ],
   imports: [
     BrowserModule,
@@ -70,7 +66,6 @@ const routeConfig = [
     RouterModule.forRoot(routeConfig)
   ],
   providers: [
-    ChatmessagesService,
     StorageService,
     ChatserverService
 

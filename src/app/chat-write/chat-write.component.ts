@@ -1,4 +1,4 @@
-import { ChatmessagesService } from './../services/chatmessages.service';
+
 import { StorageService } from './../services/storage.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
@@ -17,16 +17,7 @@ export class ChatWriteComponent implements OnInit {
   @Output()
   message: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(private chatService: ChatmessagesService) { }
-
-  /*saveMessage(message: any) {
-      message.msg_sender = this.user.name;
-      message.msg_channel = this.channel;
-      console.log(message);
-      this.chatService.saveMessage(message);
-      this.message.msg_content = '';
-
-  } */
+  constructor() { }
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('user'));
@@ -34,11 +25,7 @@ export class ChatWriteComponent implements OnInit {
 
   sendText(text) {
     this.message.emit(text);
-    this.text= '';
+    this.text = '';
   }
-
- /*  ngOnChanges () {
-    if (!!this.channel){
-      }} */
 
 }

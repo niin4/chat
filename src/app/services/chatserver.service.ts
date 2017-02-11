@@ -1,6 +1,4 @@
 import { StorageService } from './storage.service';
-import { ChatmessagesService } from './chatmessages.service';
-
 import { Injectable, Inject } from '@angular/core';
 
 import { Subject } from 'rxjs/Subject';
@@ -16,7 +14,7 @@ export class ChatserverService {
   private $rootScope;
   private user;
 
-  constructor(private storage: StorageService, private chatMessages: ChatmessagesService) { }
+  constructor(private storage: StorageService) { }
 
    init() {
 

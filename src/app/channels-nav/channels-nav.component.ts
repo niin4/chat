@@ -1,6 +1,5 @@
 import { StorageService } from './../services/storage.service';
 import { Http } from '@angular/http';
-import { ChatmessagesService } from './../services/chatmessages.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -19,7 +18,7 @@ export class ChannelsNavComponent implements OnInit {
 
   private active;
 
-  constructor(private chatService: ChatmessagesService, private storage: StorageService, private http: Http) {   }
+  constructor(private storage: StorageService, private http: Http) {   }
 
 
    changeActiveChannel(id: string) {
@@ -28,12 +27,5 @@ export class ChannelsNavComponent implements OnInit {
    }
 
   ngOnInit() {
-  //  this.active = localStorage.getItem('active');
   }
 
-   ngOnChanges () {
-      if (!!this.channels){
-
-      }}
-
-}

@@ -1,5 +1,4 @@
 import { ChatserverService } from './../services/chatserver.service';
-
 import { StorageService } from './../services/storage.service';
 import { Http } from '@angular/http';
 import { Router, RouterModule } from '@angular/router';
@@ -45,14 +44,10 @@ export class ChatContainerComponent implements OnInit {
           })();
 
           let now = time();
-          console.log(now);
-
           this.chatServer.sendMessage(event, this.active, this.user.name, now);
-
       }
 
       addNewChannel(event: Object) {
-
           this.chatServer.joinChannel(event['ch_id']);
           this.storage.addChannel(event);
           this.activeChannels = this.storage.getChannels();
@@ -66,16 +61,16 @@ export class ChatContainerComponent implements OnInit {
             this.sendActive[this.active] = true;
             this.user = JSON.parse(localStorage.getItem('user'));
 
-            // get old messages from database
-            
             // init new server connection
+            //join room on server
           this.connection = this.chatServer.init();
-
           this.chatServer.joinChannel(this.active);
 
-           this.connection = this.chatServer.getOldMessages().subscribe(
+            //get old messages from database
+          this.connection = this.chatServer.getOldMessages().subscribe(
               (res: Array<Object>) => {
-                //this.messagesArray = res;
+
+                //highlight name mentions
                 let user = JSON.parse(localStorage.getItem('user'));
                 let username = user['name'];
                 for (let key of res) {
@@ -88,13 +83,13 @@ export class ChatContainerComponent implements OnInit {
                   } 
                 this.messagesArray = res;
                });
-               
+
                this.chatServer.askOldMessages(this.active);
 
             // get saved channels from localstorage,
             // join those on server
             this.activeChannels = this.storage.getChannels();
-            this.chatServer.joinSavedChannels(this.activeChannels);
+            this.chatServer.joinSavedChannels(this.activeChannels); 
 
 
             // subscribe to new messages
@@ -110,7 +105,6 @@ export class ChatContainerComponent implements OnInit {
                     } else {
                           response['msg_highlight'] = false;
                     }
-
                     this.messagesArray.push(response);
                     console.log('oikea kanava sai viestin');
                 } else {
@@ -127,18 +121,18 @@ export class ChatContainerComponent implements OnInit {
 
       ngOnDestroy () {
         this.connection.unsubscribe();
+        this.storage.removeChannels();
       }
 
       logOut = () => {
             this.connection.unsubscribe();
-            this.storage.removeChannels();
             this.cRouter.navigate(['setup']);
       }
 
       handleUserUpdated(id: string) {
             this.active = id;
             this.sendActive = [];
-             this.notifyOfMessages[id] = null;
+            this.notifyOfMessages[id] = null;
             this.sendActive[id] = true;
             localStorage.setItem('active', id);
             this.chatServer.askOldMessages(this.active);
