@@ -18,6 +18,7 @@
 #Features
 
 Simple chat, made with Angular2, socket.io, express, nodejs.
+
 Username, premade channels, username highlighting, indicators for inactive channels' messages.
 
 #To do:

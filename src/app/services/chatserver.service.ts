@@ -8,7 +8,7 @@ import * as io from 'socket.io-client';
 @Injectable()
 export class ChatserverService {
 
-  private url = 'http://212.24.98.139:5000';
+  private url = 'your url';
   private socket;
   private sessionId;
   private $rootScope;
