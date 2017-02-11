@@ -19,7 +19,7 @@ export class ChatserverService {
    init() {
 
     let host = window.location.origin;
-    console.log('connecting to', host);
+   // console.log('connecting to', host);
 
      this.socket = io(this.url);
 
