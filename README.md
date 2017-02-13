@@ -26,5 +26,7 @@ Username, premade channels, username highlighting, indicators for inactive chann
 - Function: Leave a channel
 - Function, sql server function and search form for: Create a custom channel
 - Something funky
-- Clean things up
+- Add error handling for sql
+- Clean things up, make functions for highlight etc.
+
 
