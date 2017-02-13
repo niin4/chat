@@ -3,8 +3,8 @@ let express = require('express');
 let mysql = require('mysql');
 let path = require('path');
 let app = require('express')();
-let cors = require('cors');
-var allowedOrigins = "*:*";
+
+
 let http = require('http').Server(app);
 let io = require('socket.io')(http);
 
