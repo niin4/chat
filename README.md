@@ -27,6 +27,7 @@ Username, premade channels, username highlighting, indicators for inactive chann
 - Function, sql server function and search form for: Create a custom channel
 - Something funky
 - Add error handling for sql
+- Fix navbar for mobile screens
 - Clean things up, make functions for highlight etc.
 
 
