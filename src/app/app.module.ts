@@ -16,17 +16,8 @@ import { RouterModule } from '@angular/router';
 import { ChannelSetupComponent } from './channel-setup/channel-setup.component';
 import { ChannelPickerComponent } from './channel-picker/channel-picker.component';
 
-import * as io from 'socket.io-client';
+//import * as io from 'socket.io-client';
 
-import {Angular2AutoScroll} from "angular2-auto-scroll/lib/angular2-auto-scroll.directive";
-
-
-
-
-
-/* new ProvidePlugin ({
-  io: 'socket.io-client',
-}); */
 
 const routeConfig = [
   {
@@ -57,13 +48,12 @@ const routeConfig = [
     SetupComponent,
     ChannelSetupComponent,
     ChannelPickerComponent,
-    Angular2AutoScroll
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routeConfig)
+    RouterModule.forRoot(routeConfig, { useHash: true })
   ],
   providers: [
     StorageService,
